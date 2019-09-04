@@ -1,5 +1,8 @@
 {
   "version": 2,
+  "name": "now-php-test",
+  "regions": ["all"],
+  "public": true,
   "builds": [
     { "src": "*.php", "use": "now-php" }
   ]
