@@ -10,15 +10,15 @@ if(!empty($_GET['method']))
             echo json_encode(Archillect::GetLastImageID());
             break;
         case 'getlast':
-            if(isset($_GET['amount']) && is_numeric($_GET['amount'])) {
-                echo json_encode(Archillect::GetLast($_GET['amount']));
+            if(isset($_GET['int']) && is_numeric($_GET['int'])) {
+                echo json_encode(Archillect::GetLast($_GET['int']));
             }
             else
                 echo 'Invalid amount';
             break;
         case 'getbyid':
-            if(isset($_GET['id']) && is_numeric($_GET['id'])) {
-                echo json_encode(Archillect::GetImageData($_GET['id']));
+            if(isset($_GET['int']) && is_numeric($_GET['int'])) {
+                echo json_encode(Archillect::GetImageData($_GET['int']));
             }
             else
                 echo 'Invalid id';
