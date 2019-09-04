@@ -7,10 +7,10 @@ class Archillect
         $mainPage = file_get_contents('http://archillect.com');
 
         $document = new DOMDocument();
-        $document->loadHTML($mainPage); // was @$document
+        @$document->loadHTML($mainPage); 
 
         $containerDiv = $document->getElementById('posts');
-        $imageElement = $containerDiv->childNodes->item(1)->getAttribute('href');
+        $imageElement = $containerDiv->childNodes->item(1)->attributes->item(1);
         //$this->imageMaxId = substr($imageElement, 1);
         return substr($imageElement, 1);
     }
@@ -20,7 +20,7 @@ class Archillect
         // todo: add existence check
         $mainPage = file_get_contents('http://archillect.com/'.$imageId);
         $document = new DOMDocument();
-        $document->loadHTML($mainPage);
+        @$document->loadHTML($mainPage);
 
         $imageURL = $document->getElementsByTagName('img')[1]->getAttribute('src');
         $linksArray = [];
