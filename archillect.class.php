@@ -1,35 +1,28 @@
 <?php
 
+require_once 'simple_html_dom.php';
+
 class Archillect
 {
     static function GetLastImageID()
     {
-        $mainPage = file_get_contents('http://archillect.com');
+        $html = file_get_html('http://archillect.com');
+        $href = $html->find('#posts', 0)->first_child()->href;
 
-        $document = new DOMDocument();
-        @$document->loadHTML($mainPage); 
-
-        $containerDiv = $document->getElementById('posts');
-        $imageElement = $containerDiv->childNodes->item(1)->attributes->item(1);
-        //$this->imageMaxId = substr($imageElement, 1);
-        return substr($imageElement, 1);
+        return substr($href, 1);
     }
 
     static function GetImageData($imageId)
     {
         // todo: add existence check
-        $mainPage = file_get_contents('http://archillect.com/'.$imageId);
-        $document = new DOMDocument();
-        @$document->loadHTML($mainPage);
+        $html = file_get_html('http://archillect.com/'.$imageId);
+        $imageURL = $html->find('#imgnav', 0)->last_child()->src;
 
-        $imageURL = $document->getElementsByTagName('img')[1]->getAttribute('src');
         $linksArray = [];
 
-        $sourcesDiv = $document->getElementById('sources');
-
-        foreach ($sourcesDiv->childNodes as $entry)
-            if($entry->nodeName == 'a' && $entry->hasAttribute('href'))
-                $linksArray[] = $entry->getAttribute('href');
+        $divElements = $html->find('#sources', 0)->children;
+        foreach($divElements as $element)
+            $linksArray[] = $element->href;
 
         $dataArray = [
           'id' => $imageId, 'imageSource' => $imageURL, 'sourceLinks' => $linksArray
