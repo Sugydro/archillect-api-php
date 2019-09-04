@@ -6,6 +6,7 @@
     { "src": "*.php", "use": "now-php" }
   ],
   "routes": [ 
+    { "src": "/([^/]+)", "dest": "/index.php?method=$1" },
     { "src": "/([^/]+)/([^/]+)", "dest": "/index.php?method=$1&int=$2" }
   ]
 }
