@@ -7,6 +7,6 @@
   ],
   "routes": [ 
     { "src": "/([^/]+)", "dest": "/index.php?method=$1" },
-    { "src": "/(?<method>[^/]+)/(?<amount>[^/]+)", "dest": "/index.php?method=$method&amount=$amount" }
+    { "src": "/([^/]+)/([^/]+)", "dest": "/index.php?method=$1&amount=$2" }
   ]
 }
