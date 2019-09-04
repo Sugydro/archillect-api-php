@@ -1,6 +1,11 @@
 {
   "version": 2,
+  "name": "api-archillect",
+  "alias": "api-archillect"}
   "builds": [
     { "src": "*.php", "use": "now-php" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }
