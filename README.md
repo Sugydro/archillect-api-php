@@ -1,8 +1,8 @@
 # archillect-api-php
-https://api-archillect.now.sh/getbyid/12345
+https://api-archillect.vercel.app/getbyid/12345
 
-https://api-archillect.now.sh/getlast/{amount}
+https://api-archillect.vercel.app/getlast/{amount}
 
-https://api-archillect.now.sh/getrandom
+https://api-archillect.vercel.app/getrandom
 
-https://api-archillect.now.sh/getlastid
+https://api-archillect.vercel.app/getlastid
