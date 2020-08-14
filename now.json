@@ -8,7 +8,7 @@
     }
   },
   "routes": [ 
-    { "src": "/([^/]+)", "dest": "/index.php?method=$1" },
-    { "src": "/([^/]+)/([^/]+)", "dest": "/index.php?method=$1&int=$2" }
+    { "src": "/([^/]+)", "dest": "api/index.php?method=$1" },
+    { "src": "/([^/]+)/([^/]+)", "dest": "api/index.php?method=$1&int=$2" }
   ]
 }
