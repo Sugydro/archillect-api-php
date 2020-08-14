@@ -1,6 +1,9 @@
 {
+  "version": 2,
+  "name": "api-archillect",
+  "alias": "api-archillect",
   "functions": {
-    "api/*.php": {
+    "*.php": {
       "runtime": "vercel-php@0.3.1"
     }
   },
