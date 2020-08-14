@@ -2,13 +2,11 @@
   "version": 2,
   "name": "api-archillect",
   "alias": "api-archillect",
-  "functions": {
-    "api/*.php": {
-      "runtime": "vercel-php@0.3.0"
-    }
-  },
+  "builds": [
+    { "src": "*.php", "use": "vercel-php@latest" }
+  ],
   "routes": [ 
-    { "src": "/([^/]+)", "dest": "api/index.php?method=$1" },
-    { "src": "/([^/]+)/([^/]+)", "dest": "api/index.php?method=$1&int=$2" }
+    { "src": "/([^/]+)", "dest": "/index.php?method=$1" },
+    { "src": "/([^/]+)/([^/]+)", "dest": "/index.php?method=$1&int=$2" }
   ]
 }
