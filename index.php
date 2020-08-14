@@ -32,4 +32,4 @@ if(!empty($_GET['method']))
     }
 }
 else
-    echo 'Method not selected';
+    echo 'Method not selected!';
